@@ -1,0 +1,45 @@
+// lib/Switch\Que08Switch.dart
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/BottomNavigationBar.dart';
+
+class Que0811 extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<Que0811> {
+  bool isSwitched = false;
+
+  final String image1 = "assets/help/Switch/Que08.png";
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+            title: WidgetAppBar("Diff. between Switch & Switch.adaptive")),
+        bottomNavigationBar:
+            QueBottom(urlName: url1, imageName: image1, videoUrlId: video1),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Transform.scale(
+                scale: 3,
+                child: Switch.adaptive(
+                  value: isSwitched,
+                  onChanged: (value) {
+                    setState(() => isSwitched = value);
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text("May be set its own as per Android or iOS")
+          ],
+        ),
+        floatingActionButton: WidgetFab(),
+      ),
+    );
+  }
+}
